@@ -46,6 +46,13 @@ app.get("/keys/:storeName", auth, (req, res) => {
     res.json({ success: true, keys });
 });
 
+// GET /allkeys - ดึง keys ทั้งหมด
+app.get("/allkeys", auth, (req, res) => {
+    const keys = Object.keys(playerData);
+    console.log(`[ALLKEYS] count=${keys.length}`);
+    res.json({ success: true, keys });
+});
+
 // GET /count - ดูว่ามีข้อมูลกี่ keys
 app.get("/count", auth, (req, res) => {
     res.json({ count: Object.keys(playerData).length });
